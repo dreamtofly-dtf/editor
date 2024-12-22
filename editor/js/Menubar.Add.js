@@ -84,7 +84,7 @@ option.setTextContent( strings.getKey( 'menubar/add/mesh/text' ) );
 option.onClick( function () {
 
     const loader = new THREE.FontLoader();
-    loader.load( 'https://raw.githubusercontent.com/dreamtofly-dtf/editor/dev/examples/fonts/helvetiker_regular.typeface.json', function ( font ) {
+    loader.load( '/editor/dev/examples/fonts/helvetiker_regular.typeface.json', function ( font ) {
 
         const geometry = new THREE.TextGeometry( 'Your Text Here', {
             font: font,
