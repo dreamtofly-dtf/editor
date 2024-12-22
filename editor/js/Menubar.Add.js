@@ -4,6 +4,11 @@ import { UIPanel, UIRow } from './libs/ui.js';
 
 import { AddObjectCommand } from './commands/AddObjectCommand.js';
 
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
+
+
+
 function MenubarAdd( editor ) {
 
 	const strings = editor.strings;
@@ -73,6 +78,37 @@ function MenubarAdd( editor ) {
 
 	} );
 	meshSubmenu.add( option );
+	// Mesh / Text
+option = new UIRow();
+option.setClass( 'option' );
+option.setTextContent( strings.getKey( 'menubar/add/mesh/text' ) );
+option.onClick( function () {
+
+    const loader = new THREE.FontLoader();
+    loader.load( 'path/to/font.json', function ( font ) {
+
+        const geometry = new THREE.TextGeometry( 'Your Text Here', {
+            font: font,
+            size: 1,
+            height: 0.5,
+            curveSegments: 12,
+            bevelEnabled: true,
+            bevelThickness: 0.03,
+            bevelSize: 0.02,
+            bevelSegments: 5
+        } );
+
+        const material = new THREE.MeshStandardMaterial();
+        const textMesh = new THREE.Mesh( geometry, material );
+        textMesh.name = 'Text';
+
+        editor.execute( new AddObjectCommand( editor, textMesh ) );
+
+    } );
+
+} );
+meshSubmenu.add( option );
+
 
 	// Mesh / Capsule
 
