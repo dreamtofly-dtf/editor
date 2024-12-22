@@ -4,8 +4,8 @@ import { UIPanel, UIRow } from './libs/ui.js';
 
 import { AddObjectCommand } from './commands/AddObjectCommand.js';
 
-import { FontLoader } from 'editor/examples/jsm/loaders/FontLoader.js';
-import { TextGeometry } from 'editor/examples/jsm/geometries/TextGeometry.js';
+import { FontLoader } from '../../examples/jsm/loaders/FontLoader.js';
+import { TextGeometry } from '../../examples/jsm/geometries/TextGeometry.js';
 
 
 function MenubarAdd( editor ) {
