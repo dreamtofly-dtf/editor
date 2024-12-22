@@ -4,8 +4,8 @@ import { UIPanel, UIRow } from './libs/ui.js';
 
 import { AddObjectCommand } from './commands/AddObjectCommand.js';
 
-import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
-import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
+import { FontLoader } from '../examples/jsm/loaders/FontLoader.js';
+import { TextGeometry } from '../examples/jsm/geometries/TextGeometry.js';
 
 
 
@@ -85,7 +85,7 @@ option.setTextContent( strings.getKey( 'menubar/add/mesh/text' ) );
 option.onClick( function () {
 
     const loader = new THREE.FontLoader();
-    loader.load( 'path/to/font.json', function ( font ) {
+    loader.load( 'https://raw.githubusercontent.com/dreamtofly-dtf/editor/dev/examples/fonts/helvetiker_regular.typeface.json', function ( font ) {
 
         const geometry = new THREE.TextGeometry( 'Your Text Here', {
             font: font,
